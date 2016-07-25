@@ -1,0 +1,23 @@
+body {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+}
+
+.app-container {
+  height: 100%;
+  width: 100%;
+}
+
+.navigation-bar {
+  height: 50px;
+  background-color: #1E7FBB;
+}
+
+.main-body {
+  height: 100%;
+  background-color: #F3F3F3;
+}

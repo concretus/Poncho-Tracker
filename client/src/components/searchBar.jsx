@@ -11,10 +11,10 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div>
-        <input 
-          className="form-control" 
-          type="text" 
-          placeholder="temp" 
+        <input
+          className="form-control"
+          type="text"
+          placeholder="temp"
           onChange={() => {
             console.log('this.props.', this.props.search);
           }}
