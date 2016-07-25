@@ -9,6 +9,7 @@ export default class MainBody extends React.Component {
     return (
       <div className="main-body">
         This is main body
+        {this.props.children}
       </div>
     );
   }
