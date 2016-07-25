@@ -12,7 +12,7 @@ export default class Layout extends React.Component {
     return (
       <div className="app-container">
         <Navigation />
-        <MainBody />
+        {this.props.children}
       </div>
     );
   }
