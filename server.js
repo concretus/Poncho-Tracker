@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const port = 3000;
+const port = 8080;
 
 // configure our server with all the middleware
 require('./config/middleware.js')(app, express);
