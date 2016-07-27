@@ -9,9 +9,9 @@ import { browserHistory } from 'react-router'
 import appReducer from './reducers/appReducer.jsx';
 
 import App from './components/app.jsx';
-// import Layout from '.components/Layout/layout.jsx';
+import MainLayout from './components/Layout/main_layout.jsx';
 import MainBody from './components/Layout/main_body.jsx';
-import About from './components/about.jsx';
+import Library from './components/library.jsx';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 let store = createStoreWithMiddleware(appReducer);
@@ -19,10 +19,9 @@ let store = createStoreWithMiddleware(appReducer);
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route component={App}>
-        <Route path="/" component={MainBody}>
-          <Route path="about" component={About}></Route>
-        </Route>
+      <Route path="/" component={MainLayout}>
+        <Route path="main" component={MainBody} />
+        <Route path="library" component={Library} />
       </Route>
     </Router>
   </Provider>,
