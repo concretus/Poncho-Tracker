@@ -9,7 +9,7 @@ services:
       - POSTGRES_PASSWORD=yourpw
 
   node: 
-    build: .
+    build: node/.
     ports:
       - "8080:8080"
     links:
