@@ -4,9 +4,7 @@ services:
     image: postgres
     ports:
       - "5432:5432"
-    environment:
-      - POSTGRES_USER=youruser
-      - POSTGRES_PASSWORD=yourpw
+    env_file: ./config.env
 
   node: 
     build: node/.
@@ -14,6 +12,4 @@ services:
       - "8080:8080"
     links:
       - postgres
-    environment:
-      - POSTGRES_USER=youruser
-      - POSTGRES_PASSWORD=yourpw
+    env_file: ./config.env
