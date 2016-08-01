@@ -1,3 +1,8 @@
+# npm error log
 npm-debug.log
 
+# env variables
+config.env
+
+# all node_modules folder
 node_modules/
