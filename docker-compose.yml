@@ -1,15 +1,19 @@
-db:
-  image: postgres
-  ports:
-    - "5432:5432"
+version: '2'
+services: 
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=youruser
+      - POSTGRES_PASSWORD=yourpw
 
-web: 
-  build: .
-  ports:
-    - "8080:8080"
-  links:
-    - db
-  environment:
-    - PGHOST=db
-    - PGDATABASE=postgres
-    - PGUSER=postgres
+  node: 
+    build: node/.
+    ports:
+      - "8080:8080"
+    links:
+      - postgres
+    environment:
+      - POSTGRES_USER=youruser
+      - POSTGRES_PASSWORD=yourpw
