@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 // const pg = require('pg');
-const knex = require('./db_config/schema')
+// const knex = require('./db_config/schema');
 
 const port = 8080;
 // const conString = "postgres://"+process.env.POSTGRES_USER+":"+process.env.POSTGRES_PASSWORD+"@postgres:5432/"+process.env.POSTGRES_DB;
@@ -33,16 +33,16 @@ app.get('/testpg', (req, res) => {
 
 app.get('/testbookshelf', (req, res) => {
 
-  // var knex = require('knex')({
-  //   client: 'pg',
-  //   connection: {
-  //     host     : process.env.POSTGRES_HOST,
-  //     user     : process.env.POSTGRES_USER,
-  //     password : process.env.POSTGRES_PASSWORD,
-  //     database : process.env.POSTGRES_DB,
-  //     charset  : 'utf8'
-  //   }
-  // });
+  var knex = require('knex')({
+    client: 'pg',
+    connection: {
+      host     : process.env.POSTGRES_HOST,
+      user     : process.env.POSTGRES_USER,
+      password : process.env.POSTGRES_PASSWORD,
+      database : process.env.POSTGRES_DB,
+      charset  : 'utf8'
+    }
+  });
 
   // var bookshelf = require('bookshelf')(knex);
 
