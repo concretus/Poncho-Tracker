@@ -1,6 +1,8 @@
+-- 
 CREATE USER docker;
-CREATE DATABASE docker;
-GRANT ALL PRIVILEGES ON DATABASE docker TO docker;
+GRANT ALL PRIVILEGES ON DATABASE docker_db TO docker;
+
+\c docker_db;
 CREATE TABLE test(
   ID INT PRIMARY KEY NOT NULL
 );
