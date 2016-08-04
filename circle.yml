@@ -1,5 +1,5 @@
 general:
-  build_dir: server
+  build_dir: app/server
 
 machine:
   node:
