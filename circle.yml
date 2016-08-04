@@ -1,6 +1,3 @@
-general:
-  build_dir: [ app/client, app/server ]
-
 machine:
   node:
     version: 6.2.0
