@@ -1,0 +1,10 @@
+general:
+  build_dir: server
+
+machine:
+  node:
+    version: 6.2.0
+
+dependencies:
+  override:
+    - npm install --dev
