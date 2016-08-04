@@ -1,9 +1,11 @@
 const assert = require('assert');
+const sum = require('../test');
 
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal(-1, [1,2,3].indexOf(4));
+
+describe('sum', function() {
+  describe('sum', function() {
+    it('should sum 2 nubmers', function() {
+      assert.equal(5, sum(2, 3));
     });
   });
 });
