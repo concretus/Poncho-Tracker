@@ -1,12 +1,14 @@
-{
+module.exports = {
   "env": {
-    "es6": true
+    "es6": true,
+    "browser": true,
+    "node": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
-      "jsx": true
+      "jsx": true,
     },
     "sourceType": "module"
   },
@@ -16,7 +18,7 @@
   "rules": {
     "indent": [
       "error",
-      4
+      2
     ],
     "linebreak-style": [
       "error",
@@ -29,6 +31,9 @@
     "semi": [
       "error",
       "always"
-    ]
+    ],
+    "no-console": "off",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
   }
 }
