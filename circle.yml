@@ -1,7 +1,5 @@
 general:
-  build_dir: 
-    - app/client
-    - app/server
+  build_dir: [ app/client, app/server ]
 
 machine:
   node:
