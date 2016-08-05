@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 // const pg = require('pg');
 // const knex = require('./db_config/schema');
+const queries = require('./db_config/queries');
 
 const port = 8080;
 // const conString = "postgres://"+process.env.POSTGRES_USER+":"+process.env.POSTGRES_PASSWORD+"@postgres:5432/"+process.env.POSTGRES_DB;
@@ -11,6 +12,20 @@ console.log('process.env.POSTGRES_USER: ', process.env.POSTGRES_USER);
 console.log('process.env.POSTGRES_DB: ', process.env.POSTGRES_DB);
 // configure our server with all the middleware
 require('./config/middleware.js')(app, express);
+
+app.get('/api/v1/pageview', (req, res) => {
+  queries.getAll()
+    .then((data) => {
+      res.status(200).json(data);
+    });
+});
+
+app.post('/api/v1/pageview', (req, res) => {
+  queries.postOne(req)
+    .then((data) => {
+      res.status(200).json(data);
+    });
+});
 
 app.get('/testpg', (req, res) => {
   // pg.connect(conString, function(err, client, done) {

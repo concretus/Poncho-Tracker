@@ -11,6 +11,10 @@ dependencies:
   override:
     - npm install --dev
 
+database:
+  override:
+      - psql -U ubuntu circle_test < circleci-database-setup.sql
+
 test:
   post:
     - bash <(curl -s https://codecov.io/bash)
