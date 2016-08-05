@@ -3,13 +3,8 @@ exports.up = function(knex, Promise) {
 
   return Promise.all([
 
-    knex.schema.createTableIfNotExists('pageview', function(table) {
-      table.increments('uid').primary();
-      table.timestamps();
-    }),
-
     knex.schema.createTableIfNotExists('users', function(table) {
-      table.increments('uid').primary();
+      table.increments('id').primary();
       table.string('username');
       table.string('password');
       table.string('name');
@@ -17,36 +12,32 @@ exports.up = function(knex, Promise) {
       table.timestamps();
     }),
 
-    knex.schema.createTableIfNotExists('posts', function(table){
+    knex.schema.createTableIfNotExists('entries', function(table){
       table.increments('id').primary();
-      table.string('title');
-      table.string('body');
+      table.string('content');
       table.integer('author_id')
-           .references('uid')
+           .references('id')
            .inTable('users');
+      table.string('type');
       table.dateTime('postDate');
     }),
 
-    knex.schema.createTableIfNotExists('comments', function(table){
+    knex.schema.createTableIfNotExists('RFIs', function(table){
       table.increments('id').primary();
-      table.string('body');
+      table.string('title');
       table.integer('author_id')
-           .references('uid')
-           .inTable('users');
-      table.integer('post_id')
            .references('id')
-           .inTable('posts');
+           .inTable('RFIs');
       table.dateTime('postDate');
+      table.dateTime('dueDate');
     })
   ]);
-  
 };
 
 exports.down = function(knex, Promise) {
   return Promise.all([
-    knex.schema.dropTable('pageview'),
     knex.schema.dropTable('users'),
-    knex.schema.dropTable('posts'),
-    knex.schema.dropTable('comments')
+    knex.schema.dropTable('entries'),
+    knex.schema.dropTable('RFIs')
   ]);
 };
