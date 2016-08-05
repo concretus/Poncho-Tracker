@@ -11,6 +11,6 @@ dependencies:
   override:
     - npm install --dev
 
-notify:
-  webhooks:
-    - url: https://coveralls.io/webhook
+test:
+  post:
+    - bash <(curl -s https://codecov.io/bash)
