@@ -29,6 +29,7 @@ app.get('/testpg', (req, res) => {
   //     });
   //   });
   // });
+  res.send('ok!');
 });
 
 app.get('/testbookshelf', (req, res) => {
