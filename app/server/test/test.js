@@ -15,12 +15,6 @@ describe('loading express', function() {
       .expect(200, done);
   });
 
-  it('response to /testpg', (done) => {
-    request(server)
-      .get('/testpg')
-      .expect(200, done);
-  });
-
   it('302 redirect everything else', (done) => {
     request(server)
       .get('/foo/bar')
