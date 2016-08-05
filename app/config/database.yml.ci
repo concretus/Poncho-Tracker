@@ -1,5 +1,0 @@
-test:
-  adapter: postgresql
-  database: poncho_db_test
-  username: ubuntu
-  encoding: unicode
