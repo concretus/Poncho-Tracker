@@ -13,10 +13,8 @@ dependencies:
 
 database:
   pre:
-    - psql
-    - CREATE DATABASE poncho_db_test;
-    - CREATE TABLE users;
-    - \q
+    - cp config/database.yml.ci config/database.yml
+    - bundle exec rake db:create db:schema:load
 
 test:
   post:
