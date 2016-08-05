@@ -1,9 +1,8 @@
 const assert = require('assert');
+const sum = require('../src/sum');
 
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return index when number is found', function() {
-      assert.equal(0, [1,2,3].indexOf(1));
-    });
+describe('Sum', () => {
+  it('should run the sum function', () => {
+    assert.equal(5, sum(2, 3));
   });
 });
