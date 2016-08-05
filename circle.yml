@@ -11,6 +11,13 @@ dependencies:
   override:
     - npm install --dev
 
+database:
+  pre:
+    - psql
+    - CREATE DATABASE poncho_db_test;
+    - CREATE TABLE users;
+    - \q
+
 test:
   post:
     - bash <(curl -s https://codecov.io/bash)
