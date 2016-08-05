@@ -1,5 +1,7 @@
 general:
   build_dir: app
+  artifacts:
+    - ./app/server/covarge
 
 machine:
   node:
@@ -8,3 +10,7 @@ machine:
 dependencies:
   override:
     - npm install --dev
+
+test:
+  post:
+    - bash <(curl -s https://codecov.io/bash)
