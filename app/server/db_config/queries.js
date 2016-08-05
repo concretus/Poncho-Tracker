@@ -1,15 +1,14 @@
 const knex = require('./knex.js');
 
-function Shows() {
+function Users() {
   return knex('pageview');
 }
 
 // *** queries *** //
 
 function getAll() {
-  return Shows().select();
+  return Users().select();
 }
-
 
 module.exports = {
   getAll: getAll
