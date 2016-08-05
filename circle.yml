@@ -13,7 +13,7 @@ dependencies:
 
 database:
   override:
-      - psql -u ubuntu circle_test < my-database-setup.sql
+      - psql -U ubuntu circle_test < my-database-setup.sql
 
 test:
   post:
