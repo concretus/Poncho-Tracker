@@ -10,3 +10,7 @@ machine:
 dependencies:
   override:
     - npm install --dev
+
+notify:
+  webhooks:
+    - url: https://coveralls.io/webhook
