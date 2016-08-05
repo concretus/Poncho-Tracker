@@ -21,9 +21,13 @@ describe('loading express', function() {
       .expect(200, done);
   });
 
-  it('404 everything else', (done) => {
+  it('302 redirect everything else', (done) => {
     request(server)
       .get('/foo/bar')
-      .expect(404, done);
+      .expect(302);
+
+    request(server)
+      .get('/whatever')
+      .expect(302, done);
   });
 });
