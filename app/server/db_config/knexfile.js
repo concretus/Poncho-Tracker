@@ -18,13 +18,14 @@ module.exports = {
   },
   development: {
     client: 'pg',
-    connection: {
-      host     : 'localhost',
-      user     : 'postgres',
-      password : '',
-      database : 'poncho_db_test',
-      charset  : 'utf8'
-    },
+    connection: 'postgres://localhost/poncho_db_dev',
+    // connection: {
+    //   host     : 'localhost',
+    //   user     : 'postgres',
+    //   password : '',
+    //   database : 'poncho_db_dev',
+    //   charset  : 'utf8'
+    // },
     migrations: {
       directory: __dirname +'/migrations'
     },
