@@ -8,11 +8,19 @@ describe('loading express', function() {
   afterEach(() => {
     server.close();
   });
+
   it('response to /', (done) => {
     request(server)
       .get('/')
       .expect(200, done);
   });
+
+  it('response to /testpg', (done) => {
+    request(server)
+      .get('/testpg')
+      .expect(200, done);
+  });
+
   it('404 everything else', (done) => {
     request(server)
       .get('/foo/bar')
