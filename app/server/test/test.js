@@ -1,11 +1,21 @@
-const assert = require('assert');
-const sum = require('../test');
+const request = require('supertest');
 
-
-describe('sum', function() {
-  describe('sum', function() {
-    it('should sum 2 nubmers', function() {
-      assert.equal(5, sum(2, 3));
-    });
+describe('loading express', function() {
+  let server;
+  beforeEach(() => {
+    server = require('../server');
+  });
+  afterEach(() => {
+    server.close();
+  });
+  it('response to /', (done) => {
+    request(server)
+      .get('/')
+      .expect(200, done);
+  });
+  it('404 everything else', (done) => {
+    request(server)
+      .get('/foo/bar')
+      .expect(404, done);
   });
 });
