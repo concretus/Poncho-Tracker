@@ -10,6 +10,11 @@ function getAll() {
   return Users().select();
 }
 
+function postOne(req) {
+  return Users().insert(req.body);
+}
+
 module.exports = {
-  getAll: getAll
+  getAll: getAll,
+  postOne: postOne
 };

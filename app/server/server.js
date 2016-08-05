@@ -20,6 +20,13 @@ app.get('/api/v1/pageview', (req, res) => {
     });
 });
 
+app.post('/api/v1/pageview', (req, res) => {
+  queries.postOne(req)
+    .then((data) => {
+      res.status(200).json(data);
+    });
+});
+
 app.get('/testpg', (req, res) => {
   // pg.connect(conString, function(err, client, done) {
   //   client.query('CREATE TABLE IF NOT EXISTS foo (id SERIAL, bar varchar);', function(err, result) {
