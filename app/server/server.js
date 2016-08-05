@@ -82,11 +82,9 @@ app.get('/testbookshelf', (req, res) => {
     // res.send('testing bookshelf');
   // });
 
-  
-  
-
-
 });
+
+app.get('/*', (req, res) => res.redirect('/'));
 
 const server = app.listen(port, () => console.log(`Listening on port ${port}`));
 
