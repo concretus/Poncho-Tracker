@@ -48,5 +48,5 @@ exports.down = function(knex, Promise) {
     knex.schema.dropTable('users'),
     knex.schema.dropTable('posts'),
     knex.schema.dropTable('comments')
-  ])
+  ]);
 };
