@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha */test/*.js",
+    "cover": "istanbul cover _mocha */test/*.js",
     "dev": "npm run server & npm run client",
     "server": "nodemon server/server.js",
     "client": "cd client && webpack --progress --colors --watch"
