@@ -5,7 +5,6 @@ const should = chai.should();
 const chaiHttp = require('chai-http');
 const server = require('../server');
 const knex = require('../db_config/knex');
-const User = require('../db_config/controllers/user_controller');
 
 chai.use(chaiHttp);
 
@@ -79,6 +78,7 @@ describe('API Routes', () => {
         res.body[0].name.should.equal('Michelle He');
         res.body[0].created_at.should.not.equal(null);
         res.body[1].name.should.equal('Jon Arnaldo');
+        res.body[1].created_at.should.not.equal(null);
         done();
       });
     });
