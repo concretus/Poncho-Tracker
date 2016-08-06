@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
 
   return Promise.all([
 
-    knex.schema.createTableIfNotExists('users', function(table) {
+    knex.schema.createTable('users', function(table) {
       table.increments('id').primary();
       table.string('username');
       table.string('password');
@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
       table.timestamp('created_at').notNullable().defaultTo(knex.raw('now()'));
     }),
 
-    knex.schema.createTableIfNotExists('entries', function(table){
+    knex.schema.createTable('entries', function(table){
       table.increments('id').primary();
       table.string('content');
       table.integer('author_id')
@@ -22,11 +22,11 @@ exports.up = function(knex, Promise) {
       table.dateTime('postDate');
     }),
 
-    knex.schema.createTableIfNotExists('rfis', function(table){
+    knex.schema.createTable('rfis', function(table){
       table.increments('id').primary();
-      table.float('RFI_number');
+      table.decimal('RFI_number');
       table.dateTime('date_created');
-      table.dateTime('due_date');
+      table.dateTime('date_due');
       table.string('title');
       table.string('question');
       table.integer('related_RFI')

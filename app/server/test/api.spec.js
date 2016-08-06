@@ -109,7 +109,7 @@ describe('API Routes RFIs', () => {
       const RFI01 = {
         RFI_number: 1,
         date_created: '2016-01-01 00:00:00',
-        due_date: '2016-01-15 00:00:00',
+        date_due: '2016-01-15 00:00:00',
         title: 'Foundation Concrete Grade',
         question: 'What is the concrete grade? \n please confirm',
         created_by: 1
@@ -131,7 +131,7 @@ describe('API Routes RFIs', () => {
         id: 1,
         RFI_number: 1,
         date_created: '2016-01-01 00:00:00',
-        due_date: '2016-01-15 00:00:00',
+        date_due: '2016-01-15 00:00:00',
         title: 'Foundation Concrete Grade',
         question: 'What is the concrete grade? \n please confirm',
         created_by: 1
@@ -141,7 +141,7 @@ describe('API Routes RFIs', () => {
         id: 2,
         RFI_number: 1.1,
         date_created: '2016-01-01 00:00:00',
-        due_date: '2016-01-15 00:00:00',
+        date_due: '2016-01-15 00:00:00',
         title: 'Foundation Concrete Grade',
         question: 'What is the concrete grade? \n please confirm',
         related_RFI: 1,

@@ -1,11 +1,23 @@
 CREATE DATABASE poncho_db_test;
 
 \c poncho_db_test
+
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   username VARCHAR(50) NOT NULL,
   password VARCHAR(50) NOT NULL,
   name VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL,
-  created_at timestamp default now()
+  created_at TIMESTAMP default now()
+);
+
+CREATE TABLE rfis(
+	id SERIAL PRIMARY KEY,
+	RFI_number DECIMAL NOT NULL,
+	date_created DATETIME NOT NULL,
+	date_due DATETIME NOT NULL,
+	title	VARCHAR(200) NOT NULL,
+	question TEXT NOT NULL,
+	related_RFI INT references rfis(id),
+	created_by INT NOT NULL references users(id)
 );
