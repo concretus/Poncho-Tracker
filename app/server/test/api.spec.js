@@ -94,9 +94,7 @@ describe('API Routes RFIs', () => {
       password: '1234',
       email: 'michelle@gmail.com'
     };
-
     knex('users').insert(michelle).catch((err) => console.log(err));
-    knex('rfis').del().catch((err) => console.log(err));
   });
 
   afterEach(() => {
