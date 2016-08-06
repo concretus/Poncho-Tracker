@@ -10,33 +10,36 @@ chai.use(chaiHttp);
 
 describe('API Routes', () => {
   beforeEach(() => {
-    return knex('pageview').del();
+    return knex('users').del();
   });
   afterEach(() => {
-    return knex('pageview').del();
+    return knex('users').del();
   });
 
-  describe('POST /api/v1/pageview', () => {
-    it('should post to pageview', (done) => {
-      const views = [1, 2, 3];
-      views.forEach((id) => {
-        chai.request(server)
-          .post('/api/v1/pageview')
-          .send({uid: id})
-          .end((err, res) => {
-            res.should.have.status(200);
-            res.should.be.json;
-            res.body.should.be.a('object');
-            if (id === views.length) done();
-          });
-      });
+  describe('POST /api/v1/users', () => {
+    it('should post to users', (done) => {
+      const requestBody = {
+        username: 'Michelle',
+        password: '1234',
+        email: 'michelle@gmail.com'
+      };
+
+      chai.request(server)
+        .post('/api/v1/users')
+        .send(requestBody)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.should.be.json;
+          res.body.should.be.a('object');
+          done();
+        });
     });
   });
 
-  describe('GET /api/v1/pageview', () => {
-    it('should return all pageview', (done) => {
+  describe('GET /api/v1/users', () => {
+    it('should return all users', (done) => {
       chai.request(server)
-      .get('/api/v1/pageview')
+      .get('/api/v1/users')
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;

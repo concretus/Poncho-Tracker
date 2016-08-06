@@ -1,17 +1,17 @@
 const router = require('express').Router();
-const queries = require('../db_config/queries');
+const User = require('../db_config/controllers/user_controller');
 
-router.route('/pageview')
+router.route('/users')
   .get((req, res) => {
-    queries.getAll()
+    User.getAll()
     .then((data) => {
       res.status(200).json(data);
     });
   });
 
-router.route('/pageview')
+router.route('/users')
   .post((req, res) => {
-    queries.postOne(req)
+    User.postOne(req)
     .then((data) => {
       res.status(200).json(data);
     });
