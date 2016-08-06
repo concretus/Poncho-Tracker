@@ -29,7 +29,7 @@ exports.up = function(knex, Promise) {
       table.dateTime('date_due');
       table.string('title');
       table.string('question');
-      table.integer('related_RFI')
+      table.integer('related_rfi')
            .references('id')
            .inTable('rfis');
       table.integer('created_by')

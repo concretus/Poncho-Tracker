@@ -144,7 +144,7 @@ describe('API Routes RFIs', () => {
         date_due: '2016-01-15 00:00:00',
         title: 'Foundation Concrete Grade',
         question: 'What is the concrete grade? \n please confirm',
-        related_RFI: 1,
+        related_rfi: 1,
         created_by: 1
       };
 
