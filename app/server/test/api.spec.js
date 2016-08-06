@@ -107,7 +107,7 @@ describe('API Routes RFIs', () => {
   describe('POST /api/v1/RFIs', () => {
     it('should post a single RFI', (done) => {
       const RFI01 = {
-        RFI_number: 1,
+        rfi_number: 1,
         date_created: '2016-01-01 00:00:00',
         date_due: '2016-01-15 00:00:00',
         title: 'Foundation Concrete Grade',
@@ -129,7 +129,7 @@ describe('API Routes RFIs', () => {
     it('should post a related RFI', (done) => {
       const RFI01 = {
         id: 1,
-        RFI_number: 1,
+        rfi_number: 1,
         date_created: '2016-01-01 00:00:00',
         date_due: '2016-01-15 00:00:00',
         title: 'Foundation Concrete Grade',
@@ -139,7 +139,7 @@ describe('API Routes RFIs', () => {
 
       const RFI01_1 = {
         id: 2,
-        RFI_number: 1.1,
+        rfi_number: 1.1,
         date_created: '2016-01-01 00:00:00',
         date_due: '2016-01-15 00:00:00',
         title: 'Foundation Concrete Grade',

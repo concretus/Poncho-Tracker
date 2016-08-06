@@ -24,7 +24,7 @@ exports.up = function(knex, Promise) {
 
     knex.schema.createTable('rfis', function(table){
       table.increments('id').primary();
-      table.decimal('RFI_number');
+      table.decimal('rfi_number');
       table.dateTime('date_created');
       table.dateTime('date_due');
       table.string('title');
