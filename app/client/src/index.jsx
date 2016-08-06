@@ -12,6 +12,8 @@ import MainLayout from './components/Layout/main_layout.jsx';
 import MainBody from './components/Layout/main_body.jsx';
 import Library from './components/rfi_library/rfi_library.jsx';
 
+require('./index.less')
+
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 let store = createStoreWithMiddleware(appReducer);
 
