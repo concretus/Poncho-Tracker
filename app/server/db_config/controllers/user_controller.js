@@ -9,8 +9,8 @@ function getAll() {
   return Users().select();
 }
 
-function postOne(req) {
-  return Users().insert(req.body);
+function postOne(user) {
+  return Users().insert(user);
 }
 
 module.exports = {

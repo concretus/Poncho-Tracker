@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
       table.string('password');
       table.string('name');
       table.string('email');
-      table.timestamps();
+      table.timestamp('created_at').notNullable().defaultTo(knex.raw('now()'));
     }),
 
     knex.schema.createTableIfNotExists('entries', function(table){

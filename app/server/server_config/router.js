@@ -11,7 +11,7 @@ router.route('/users')
 
 router.route('/users')
   .post((req, res) => {
-    User.postOne(req)
+    User.postOne(req.body)
     .then((data) => {
       res.status(200).json(data);
     });
