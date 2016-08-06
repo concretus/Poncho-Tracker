@@ -22,14 +22,19 @@ exports.up = function(knex, Promise) {
       table.dateTime('postDate');
     }),
 
-    knex.schema.createTableIfNotExists('RFIs', function(table){
+    knex.schema.createTableIfNotExists('rfis', function(table){
       table.increments('id').primary();
+      table.float('RFI_number');
+      table.dateTime('date_created');
+      table.dateTime('due_date');
       table.string('title');
-      table.integer('author_id')
+      table.string('question');
+      table.integer('related_RFI')
            .references('id')
-           .inTable('RFIs');
-      table.dateTime('postDate');
-      table.dateTime('dueDate');
+           .inTable('rfis');
+      table.integer('created_by')
+           .references('id')
+           .inTable('users');
     })
   ]);
 };
@@ -38,6 +43,6 @@ exports.down = function(knex, Promise) {
   return Promise.all([
     knex.schema.dropTable('users'),
     knex.schema.dropTable('entries'),
-    knex.schema.dropTable('RFIs')
+    knex.schema.dropTable('rfis')
   ]);
 };
