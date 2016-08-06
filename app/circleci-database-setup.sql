@@ -14,8 +14,8 @@ CREATE TABLE users(
 CREATE TABLE rfis(
 	id SERIAL PRIMARY KEY,
 	RFI_number DECIMAL NOT NULL,
-	date_created DATETIME NOT NULL,
-	date_due DATETIME NOT NULL,
+	date_created TIMESTAMP NOT NULL,
+	date_due TIMESTAMP NOT NULL,
 	title	VARCHAR(200) NOT NULL,
 	question TEXT NOT NULL,
 	related_RFI INT references rfis(id),
