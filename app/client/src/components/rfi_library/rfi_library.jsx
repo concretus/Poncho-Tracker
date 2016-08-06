@@ -18,9 +18,9 @@ export default class Library extends React.Component {
           </thead>
           <tbody>
             <tr>
-              <td>test</td>
-              <td>test</td>
-              <td>test</td>
+              <td>Clarification to Structureal Details</td>
+              <td>Jonathan Arnaldo</td>
+              <td>Aug 5, 2016</td>
             </tr>
           </tbody>
         </table>
