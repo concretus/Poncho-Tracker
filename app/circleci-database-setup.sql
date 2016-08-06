@@ -2,7 +2,7 @@ CREATE DATABASE poncho_db_test;
 
 \c poncho_db_test
 CREATE TABLE users(
-  id INT PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY,
   username CHAR(50) NOT NULL,
   password CHAR(50) NOT NULL,
   name CHAR(50) NOT NULL,
