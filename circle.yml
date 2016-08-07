@@ -1,7 +1,7 @@
 general:
   build_dir: app
-  artifacts:
-    - ./app/server/covarge
+  # artifacts:
+  #   - ./app/server/covarge
 
 machine:
   node:
