@@ -8,20 +8,57 @@ const knex = require('../db_config/knex');
 
 chai.use(chaiHttp);
 
-describe('API Routes users', () => {
-  afterEach(() => {
-    knex('users').del().catch((error) => console.log('error: ', error));
-  });
+// Need to clear tables before each test block
+const clearTables = (done) => {
+  knex('rfis').del()
+  .then(() => knex('users').del())
+  .then(() => done())
+  .catch((err) => console.log(err));
+};
 
+const michelle = {
+  id: 1,
+  name: 'Michelle He',
+  username: 'michelleheh',
+  password: '1234',
+  email: 'michelle@gmail.com'
+};
+
+const jonarnaldo = {
+  id: 2,
+  name: 'Jon Arnaldo',
+  username: 'jonarnaldo',
+  password: '1234',
+  email: 'ja@gmail.com'
+};
+
+const RFI01 = {
+  id: 1,
+  rfi_number: 1,
+  date_created: '2016-01-01 00:00:00',
+  date_due: '2016-01-15 00:00:00',
+  title: 'Foundation Concrete Grade',
+  question: 'What is the concrete grade? \n please confirm',
+  created_by: 1
+};
+
+const RFI01_1 = {
+  id: 2,
+  rfi_number: 1.1,
+  date_created: '2016-01-01 00:00:00',
+  date_due: '2016-01-15 00:00:00',
+  title: 'Foundation Concrete Grade',
+  question: 'What is the concrete grade? \n please confirm',
+  related_rfi: 1,
+  created_by: 1
+};
+
+describe('API Routes users', () => {
+  beforeEach((done) => {
+    clearTables(done);
+  });
   describe('POST /api/v1/users', () => {
     it('should post to users', (done) => {
-      const michelle = {
-        name: 'Michelle',
-        username: 'michelleheh',
-        password: '1234',
-        email: 'michelle@gmail.com'
-      };
-
       chai.request(server)
         .post('/api/v1/users')
         .send(michelle)
@@ -48,20 +85,6 @@ describe('API Routes users', () => {
     });
 
     it('should return all users when table is NOT empty', (done) => {
-      const michelle = {
-        name: 'Michelle He',
-        username: 'michelleheh',
-        password: '1234',
-        email: 'michelle@gmail.com'
-      };
-
-      const jonarnaldo = {
-        name: 'Jon Arnaldo',
-        username: 'jonarnaldo',
-        password: '1234',
-        email: 'ja@gmail.com'
-      };
-      
       knex('users').insert(michelle)
         .catch((error) => console.log('error: ', error))
         .then(() => knex('users').insert(jonarnaldo))
@@ -85,30 +108,13 @@ describe('API Routes users', () => {
 });
 
 describe('API Routes RFIs', () => {
-  afterEach(() => {
-    knex('rfis').del().catch((err) => console.log(err));
-    knex('users').del().catch((err) => console.log(err));
+
+  beforeEach((done) => {
+    clearTables(done);
   });
 
   describe('POST /api/v1/RFIs', () => {
     it('should post a single RFI', (done) => {
-      const michelle = {
-        id: 1,
-        name: 'Michelle He',
-        username: 'michelleheh',
-        password: '1234',
-        email: 'michelle@gmail.com'
-      };
-
-      const RFI01 = {
-        rfi_number: 1,
-        date_created: '2016-01-01 00:00:00',
-        date_due: '2016-01-15 00:00:00',
-        title: 'Foundation Concrete Grade',
-        question: 'What is the concrete grade? \n please confirm',
-        created_by: 1
-      };
-
       knex('users').insert(michelle)
         .catch((error) => console.log('error: ', error))
         .then(() => {
@@ -125,35 +131,6 @@ describe('API Routes RFIs', () => {
     });
 
     it('should post a related RFI', (done) => {
-      const michelle = {
-        id: 1,
-        name: 'Michelle He',
-        username: 'michelleheh',
-        password: '1234',
-        email: 'michelle@gmail.com'
-      };
-
-      const RFI01 = {
-        id: 1,
-        rfi_number: 1,
-        date_created: '2016-01-01 00:00:00',
-        date_due: '2016-01-15 00:00:00',
-        title: 'Foundation Concrete Grade',
-        question: 'What is the concrete grade? \n please confirm',
-        created_by: 1
-      };
-
-      const RFI01_1 = {
-        id: 2,
-        rfi_number: 1.1,
-        date_created: '2016-01-01 00:00:00',
-        date_due: '2016-01-15 00:00:00',
-        title: 'Foundation Concrete Grade',
-        question: 'What is the concrete grade? \n please confirm',
-        related_rfi: 1,
-        created_by: 1
-      };
-
       knex('users').insert(michelle)
         .catch((error) => console.log('error: ', error))
         .then(() => knex('rfis').insert(RFI01))
