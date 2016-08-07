@@ -172,8 +172,6 @@ describe('API Routes RFIs', () => {
         });
       });
     });
-              
-    xit('get all RFIs');
   });
 });
 
