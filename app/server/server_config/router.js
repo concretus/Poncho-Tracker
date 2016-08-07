@@ -26,4 +26,13 @@ router.route('/RFIs')
     });
   });
 
+router.route('/RFIs/:rfi_number')
+  .get((req, res) => {
+    const rfiNumber = req.params.rfi_number
+    RFI.getOne(rfiNumber)
+    .then((data) => {
+      res.status(200).json(data);
+    });
+  });
+
 module.exports = router;
