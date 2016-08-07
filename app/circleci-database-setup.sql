@@ -18,6 +18,6 @@ CREATE TABLE rfis(
 	date_due TIMESTAMP NOT NULL,
 	title	VARCHAR(200) NOT NULL,
 	question TEXT NOT NULL,
-	related_RFI INT references rfis(id),
+	related_rfi INT references rfis(id),
 	created_by INT NOT NULL references users(id)
 );

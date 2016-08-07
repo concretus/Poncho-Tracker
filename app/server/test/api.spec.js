@@ -113,6 +113,8 @@ describe('API Routes RFIs', () => {
     clearTables(done);
   });
 
+
+
   describe('POST /api/v1/RFIs', () => {
     it('should post a single RFI', (done) => {
       knex('users').insert(michelle)
@@ -148,9 +150,30 @@ describe('API Routes RFIs', () => {
     });
   });
 
-  xdescribe('GET /api/v1/RFIs', () => {
-    it('get all RFIs');
-
-    it('should get RFI by id');
+  describe('GET /api/v1/RFIs', () => {    
+    it('should get RFI by id', (done) => {
+      knex('users').insert(michelle)
+      .then(() => knex('rfis').insert(RFI01))
+      .then(() => {
+        chai.request(server)
+        .get('/api/v1/RFIs/1')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.should.be.json;
+          res.body.should.be.a('array');
+          res.body.length.should.equal(1);
+          res.body[0].rfi_number.should.equal('1');
+          res.body[0].date_created.should.not.equal(null);
+          res.body[0].date_due.should.not.equal(null);
+          res.body[0].question.should.equal('What is the concrete grade? \n please confirm');
+          res.body[0].title.should.equal('Foundation Concrete Grade');
+          res.body[0].created_by.should.equal(1);
+          done();
+        });
+      });
+    });
+              
+    xit('get all RFIs');
   });
 });
+
