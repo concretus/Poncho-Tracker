@@ -6,8 +6,6 @@ import { Router, Route, Link } from 'react-router'
 import TopNavigation from '../top_navigation/top_navigation.jsx'
 import ListComponent from '../list/list_component.jsx'
 
-require('./main_layout.less');
-
 export default class MainLayout extends React.Component {
   render() {
     return (
