@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import { render } from 'react-dom'
 import { Router, Route, Link } from 'react-router'
 
-require('./rfi_library.less');
-
 export default class Library extends React.Component {
 
   render() {
